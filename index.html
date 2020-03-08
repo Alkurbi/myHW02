@@ -1,0 +1,137 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Online Quiz</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+  <script src="https://smtpjs.com/v3/smtp.js">
+  </script>
+</head>
+<body>
+  <img id="logo" src="logo.png" alt="logo">
+  <select name="quizzes" id="quizS" >
+    <option value="">Select a quiz</option>
+    <option value="1">Quiz 1</option>
+  </select>
+  <span id="timer"></span>
+  <div id="screen">
+    <div id="login">
+      <p>KFUPM ID: </p>
+      <input type="text" id="ID">
+      <p class="err hide" id="iErr">ID input has an error! Please make sure it's correct.</p>
+      <p>Email: </p>
+      <input type="email" id="email">
+      <p class="err hide" id="eErr">Email input has an error! Please make sure it's correct.</p>
+      <button id="submit">Submit</button>
+    </div>
+    <div id="mcq1">
+      <p>Q1. Friction can be reduced by changing from </p>
+      <input type="radio" class="radio"  id="mcq1q1c1" value="1" name="p1q1">
+      <label for="mcq1q1c1">sliding to rolling</label><br>
+      <input type="radio" id="mcq1q1c2" class="radio"  value="2" name="p1q1">
+      <label for="mcq1q1c2">rolling to sliding</label><br>
+      <input type="radio" id="mcq1q1c3" class="radio"  value="3" name="p1q1">
+      <label for="mcq1q1c3">potential energy to kinetic energy</label><br>
+      <input type="radio" id="mcq1q1c4" class="radio" value="4" name="p1q1">
+      <label for="mcq1q1c4">dynamic to static</label><br>
+      <p>Q2. During World War II, when did Germany attack France? </p>
+      <input type="radio" id="mcq1q2c1" class="radio" value="1" name="p1q2">
+      <label for="mcq1q2c1">1940</label><br>
+      <input type="radio" id="mcq1q2c2" class="radio" value="2" name="p1q2">
+      <label for="mcq1q2c2">1941</label><br>
+      <input type="radio" id="mcq1q2c3" class="radio" value="3" name="p1q2">
+      <label for="mcq1q2c3">1942</label><br>
+      <input type="radio" id="mcq1q2c4"class="radio"  value="4" name="p1q2">
+      <label for="mcq1q2c4">1943</label><br>
+      <p>Q3. The ozone layer restricts</p>
+      <input type="radio" id="mcq1q3c1" class="radio" value="1" name="p1q3">
+      <label for="mcq1q3c1">Visible light</label><br>
+      <input type="radio" id="mcq1q3c2" class="radio" value="2" name="p1q3">
+      <label for="mcq1q3c2">Infrared radiation</label><br>
+      <input type="radio" id="mcq1q3c3" class="radio" value="3" name="p1q3">
+      <label for="mcq1q3c3">X-rays and gamma rays</label><br>
+      <input type="radio" id="mcq1q3c4" class="radio" value="4" name="p1q3">
+      <label for="mcq1q3c4">Ultraviolet radiation</label><br>
+      <p>Q4. Hygrometer is used to measure</p>
+      <input type="radio" id="mcq1q4c1" class="radio" value="1" name="p1q4">
+      <label for="mcq1q4c1">purity of milk</label><br>
+      <input type="radio" id="mcq1q4c2" class="radio" value="2" name="p1q4">
+      <label for="mcq1q4c2">specific gravity of liquid</label><br>
+      <input type="radio" id="mcq1q4c3" class="radio" value="3" name="p1q4">
+      <label for="mcq1q4c3">relative humidity</label><br>
+      <input type="radio" id="mcq1q4c4" class="radio" value="4" name="p1q4">
+      <label for="mcq1q4c4">None of the above</label><br>
+      <p>Q5. Joule is the unit of</p>
+      <input type="radio" id="mcq1q5c1" class="radio" value="1" name="p1q5">
+      <label for="mcq1q5c1">temperature</label><br>
+      <input type="radio" id="mcq1q5c2" class="radio" value="2" name="p1q5">
+      <label for="mcq1q5c2">energy</label><br>
+      <input type="radio" id="mcq1q5c3" class="radio" value="3" name="p1q5">
+      <label for="mcq1q5c3">pressure</label><br>
+      <input type="radio" id="mcq1q5c4" class="radio" value="4" name="p1q5">
+      <label for="mcq1q5c4">heat</label><br>
+      <button class="nButton" id="next">Next</button>
+    </div>
+    <div id="mcq2">
+      <p>Q1. Select all the countries which are in North America</p>
+      <input type="checkbox" class="checkbox"  id="mcq2q1c1" value="1" name="p2q1">
+      <label for="mcq2q1c1">USA</label><br>
+      <input type="checkbox" id="mcq2q1c2" class="checkbox"  value="2" name="p2q1">
+      <label for="mcq2q1c2">Brazil</label><br>
+      <input type="checkbox" id="mcq2q1c3" class="checkbox"  value="3" name="p2q1">
+      <label for="mcq2q1c3">Mexico</label><br>
+      <input type="checkbox" id="mcq2q1c4" class="checkbox" value="4" name="p2q1">
+      <label for="mcq2q1c4">Canada</label><br>
+      <p>Q2. What is not in a football game</p>
+      <input type="checkbox" id="mcq2q2c1" class="checkbox" value="1" name="p2q2">
+      <label for="mcq2q2c1">referee</label><br>
+      <input type="checkbox" id="mcq2q2c2" class="checkbox" value="2" name="p2q2">
+      <label for="mcq2q2c2">9 players each team</label><br>
+      <input type="checkbox" id="mcq2q2c3" class="checkbox" value="3" name="p2q2">
+      <label for="mcq2q2c3">hoop</label><br>
+      <input type="checkbox" id="mcq2q2c4"class="checkbox"  value="4" name="p2q2">
+      <label for="mcq2q2c4">goalpost</label><br>
+      <p>Q3. Food that contains Carbohydrates</p>
+      <input type="checkbox" id="mcq2q3c1" class="checkbox" value="1" name="p2q3">
+      <label for="mcq2q3c1">fish</label><br>
+      <input type="checkbox" id="mcq2q3c2" class="checkbox" value="2" name="p2q3">
+      <label for="mcq2q3c2">fruit</label><br>
+      <input type="checkbox" id="mcq2q3c3" class="checkbox" value="3" name="p2q3">
+      <label for="mcq2q3c3">bread</label><br>
+      <input type="checkbox" id="mcq2q3c4" class="checkbox" value="4" name="p2q3">
+      <label for="mcq2q3c4">potatoes</label><br>
+      <button class="pButton" id="pre">Previous</button>
+      <button class="nButton" id="next2">Next</button>
+    </div>
+    <div id="dnd">
+      <p class="dndq">Q1. Energy cannot be <span id="dndq1">____</span> or destroyed, it can only be changed from one form to another.</p>
+      <div>
+        <p class="p" id="dragg" draggable="true"><span>{created</span></p>
+        <p class="p" id="dragg2" draggable="true">,replaced}</p>
+        <button class="pButton" id="pre2">Previous</button>
+        <button class="nButton" id="next3">Next</button>
+      </div>
+      
+    </div>
+    <div id="result">
+      <div>
+        <table id="tableS">
+          <tr>
+            <th>Question #</th>
+            <th>Correct answers</th>
+            <th>Wrong answers</th>
+            <th>Percentage</th>
+          </tr>
+        </table>
+      </div>
+      <canvas id="pie1"></canvas><br>
+      <button id="send">send your score to your email</button>
+    </div>
+  
+    
+  </div>
+</body>
+</html>
